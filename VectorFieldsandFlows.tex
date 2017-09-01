@@ -33,7 +33,7 @@
 
 \begin{center}
 {\large \bf	Dynamical systems reading group \\[1ex]
-			Vector fields and smooth flows
+			S2:Vector fields and smooth flows
 \\[2ex]
 	   	{\it Date: Sept. 1st, 2017} \hfill \\[-1.5ex]	  
  	\hrulefill \\
@@ -48,6 +48,7 @@
 %%----------------------------------------------------------------%%
 
 Recall the existence and uniqueness theorem for initial value problems. 
+\begin{theorem}
 Let an initial value problem be given by 
 \begin{align}
 		\frac{du}{dt} &= f(u) \\
@@ -55,20 +56,46 @@ Let an initial value problem be given by
 \end{align}
 If $f:\mathbb{R}^m \to \mathbb{R}^m$ is in $C^1(U)$ for an open subset $U \subset \mathbb{R}^m$, then a unique solution $u(t)$
 exists at least for a short time $-\epsilon < t < \epsilon$.
+\label{thm:ivp}
+\end{theorem}
 
 \section{Vector fields on differentiable manifolds}
 
 The union of the tangent spaces at each $x \in M$ is also called
 the tangent bundle $TM := \cup_{x \in M} T_x M$. The \emph{vector field}
 is part of the tangent bundle and is given by the set $\left\{\xi(x)\right\}_{x\in M}$
-where $\xi(x) \in T_x M$ is the tangent vector at $x$.
+where $\xi(x) \in T_x M$ is the tangent vector at $x$. 
 
+Let $(U,h)$ be a coordinate chart on the $n$-manifold $M$. Then, the coordinates
+of an $x \in U \subset M$ are given by $h(x) = s \in \mathbb{R}^n$ or the 
+$n$-tuple $(s_1,\cdots,s_n)$. Then, 
+starting from an initial $x_0$, the initial value problem for its 
+coordinates is:
+
+\begin{align}
+\notag \frac{d s_i}{dt} &= v_i(s_1,\cdots,s_n) \\
+s(0) &= h(x_0).
+\label{eqn:ivp}
+\end{align}    
+
+In the above initial value problem, the set of $n$-tuples of real-valued 
+functions 
+$$\left\{ (v_1(h(x)),v_2(h(x)),\cdots,v_n(h(x))) \right\}_{x \in U}$$ is the vector field on $U$. Due to theorem \ref{thm:ivp}, the above IVP is able
+to describe a dynamical system at least for a short time.  
 \begin{definition}
-Let $(U,h)$ be a coordinate chart on the manifold $M$. Then, the vector field    
+A vector field is called \emph{complete} if the solution to 
+the IVP in equation \ref{eqn:ivp} exists for all time.  
 \end{definition}
 
-The next theorem (Ex. 0.2.1 in the book \cite{katok}) 
-describes the role of compactness in 
+In the last note, we made a claim that compactness of a 
+manifold makes it easier to describe dynamical systems 
+on them. The next theorem (Ex. 0.2.1 in the book \cite{katok}) 
+tells us why.
+
+\begin{theorem}
+A smooth vector field on a compact manifold is complete.
+\end{theorem}
+
 
 \bibliographystyle{plain}
 \bibliography{bibfile}
