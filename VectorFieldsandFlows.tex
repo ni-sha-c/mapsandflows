@@ -1,0 +1,77 @@
+\documentclass[11pt]{article}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx,tikz,pgfplots}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+\setlength{\oddsidemargin}{0in}  % set margins
+\setlength{\evensidemargin}{0in} %
+\setlength{\textwidth}{6.5in}    %
+\setlength{\textheight}{9.0in}   %
+\setlength{\topmargin}{-0.5in}   %
+\parskip=5pt
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepgfplotslibrary{patchplots}
+\usetikzlibrary{patterns, positioning, arrows}
+
+\newcommand\mat{{\sf MATLAB}}
+\newcommand{\mb}[1]{\hbox{\textbf{#1}}}
+\newcommand{\rmmax}{\mathrm{max}}
+\newcommand{\half}{\frac{1}{2}}
+
+\renewcommand{\labelenumii}{\alph{enumii}.}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}}}
+
+\begin{document}
+
+
+\begin{center}
+{\large \bf	Dynamical systems reading group \\[1ex]
+			Vector fields and smooth flows
+\\[2ex]
+	   	{\it Date: Sept. 1st, 2017} \hfill \\[-1.5ex]	  
+ 	\hrulefill \\
+				
+}
+\end{center}
+
+
+%%================================================================%%
+\section{Review of existence and uniqueness theorem }
+%%================================================================%%
+%%----------------------------------------------------------------%%
+
+Recall the existence and uniqueness theorem for initial value problems. 
+Let an initial value problem be given by 
+\begin{align}
+		\frac{du}{dt} &= f(u) \\
+		u(0) &= u_0 \in \mathbb{R}^m. 
+\end{align}
+If $f:\mathbb{R}^m \to \mathbb{R}^m$ is in $C^1(U)$ for an open subset $U \subset \mathbb{R}^m$, then a unique solution $u(t)$
+exists at least for a short time $-\epsilon < t < \epsilon$.
+
+\section{Vector fields on differentiable manifolds}
+
+The union of the tangent spaces at each $x \in M$ is also called
+the tangent bundle $TM := \cup_{x \in M} T_x M$. The \emph{vector field}
+is part of the tangent bundle and is given by the set $\left\{\xi(x)\right\}_{x\in M}$
+where $\xi(x) \in T_x M$ is the tangent vector at $x$.
+
+\begin{definition}
+Let $(U,h)$ be a coordinate chart on the manifold $M$. Then, the vector field    
+\end{definition}
+
+The next theorem (Ex. 0.2.1 in the book \cite{katok}) 
+describes the role of compactness in 
+
+\bibliographystyle{plain}
+\bibliography{bibfile}
+
+
+\end{document}
