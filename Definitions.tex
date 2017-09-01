@@ -67,8 +67,14 @@ a neighborhood $U \subset \mathbb{R}^m$ such that a diffeomorphism exists
 between $X \cap U$ and an open subset of $R^n$.
 \end{definition} 
 
-The above definition of a smooth manifold is equivalent to the existence of a
-continuously varying tangent space on the manifold. 
+A tangent space $T_x X$ is a vector space of dimension $n$ which is attached to 
+each $x \in X$. The above definition of a smooth manifold is equivalent to the existence of a
+continuously varying tangent space on the manifold. In the book, $X \cap U$ is 
+referred to as a \emph{coordinate neighborhood} and the diffeomorphism $f: X\cap U \to B \subset \mathbb{R}^n$
+in figure \ref{fig:manifold} is called a \emph{coordinate change}, where $B$ is the open ball
+in $\mathbb{R}^n$ shown in blue in the figure. The tuple (coordinate neighborhood, coordinate change), 
+ie, $(X\cap U, f)$ is called a \emph{coordinate chart}.
+
 
 \begin{figure}[h!]
 \begin{tikzpicture}
@@ -96,8 +102,8 @@ continuously varying tangent space on the manifold.
     \draw[thick, ->] (-3,-5) -- (0, -5) node [label=above:$f(U)$] {};
     \draw[thick, ->] (-3,-5) -- (-3, -2) node [label=right:$\mathbb{R}^n$] {};
 
-    % Subset of R^m
-     \draw[fill=white, pattern color=blue, pattern=crosshatch] (-2.0,-3.5) circle (0.75cm);
+    % Open ball in R^n
+	\draw[fill=white, pattern color=blue, pattern=crosshatch] (-2.0,-3.5) circle (0.75cm) node [above] {$B$};
 
   \end{tikzpicture}
 \caption{A differentiable $n$-manifold $X \subset \mathbb{R}^m$}.
@@ -133,6 +139,9 @@ infinite sequence in $X$ has a convergent subsequence. Another equivalent
 notion is $\epsilon$-nearness which is: for any 
 $\epsilon > 0$ there 
 is a set $\mathcal{N}_\epsilon = \left\{ x_1, x_2, \cdots, x_{k(\epsilon)}  \right\}$ such that $\norm{x-y} < \epsilon$ for some $y \;\in\; \mathcal{N}_\epsilon\cap X,\;\;\forall\;x \in X$.  
+
+A compact manifold can be covered a finite number of coordinate charts. Compactness makes it easier to describe diffeomorphisms on 
+differentiable manifolds, as we will see in the next note.
 
 \bibliographystyle{plain}
 \bibliography{bibfile}
