@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb,amsthm}
+\usepackage{graphicx,tikz,pgfplots}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+\setlength{\oddsidemargin}{0in}  % set margins
+\setlength{\evensidemargin}{0in} %
+\setlength{\textwidth}{6.5in}    %
+\setlength{\textheight}{9.0in}   %
+\setlength{\topmargin}{-0.5in}   %
+\parskip=5pt
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepgfplotslibrary{patchplots}
+\usetikzlibrary{patterns, positioning, arrows}
+
+\newcommand\mat{{\sf MATLAB}}
+\newcommand{\mb}[1]{\hbox{\textbf{#1}}}
+\newcommand{\rmmax}{\mathrm{max}}
+\newcommand{\half}{\frac{1}{2}}
+
+\renewcommand{\labelenumii}{\alph{enumii}.}
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}}}
+
+\begin{document}
+
+
+\begin{center}
+{\large \bf	Dynamical systems reading group \\[1ex]
+			S3: Poincare Maps
+\\[2ex]
+	   	{\it Date: Sept. 6th, 2017} \hfill \\[-1.5ex]	  
+ 	\hrulefill \\
+				
+}
+\end{center}
+
+
+%%================================================================%%
+\section{Motivation}
+%%================================================================%%
+%%----------------------------------------------------------------%%
+
+One way to "discretize" a smooth flow on a smooth manifold (which 
+as we saw in the last note, can be locally expressed as an initial
+value problem on the tangent bundle) is through the map: $f := \varphi^{t_0}$.
+That is, the iterates of $f$ are snapshots of the continuous-in-time 
+transformation $\varphi$ at regular time intervals $t_0$. This discretization 
+method is incapable of describing many flows. 
+
+Consider a discrete map 
+
+
+\section{Vector fields on differentiable manifolds}
+
+The union of the tangent spaces at each $x \in M$ is also called
+the tangent bundle $TM := \cup_{x \in M} T_x M$. The \emph{vector field}
+is part of the tangent bundle and is given by the set $\left\{\xi(x)\right\}_{x\in M}$
+where $\xi(x) \in T_x M$ is the tangent vector at $x$. 
+
+Let $(U,h)$ be a coordinate chart on the $n$-manifold $M$. Then, the coordinates
+of an $x \in U \subset M$ are given by $h(x) = s \in \mathbb{R}^n$ or the 
+$n$-tuple $(s_1,\cdots,s_n)$. Then, 
+starting from an initial $x_0$, the initial value problem for its 
+coordinates is:
+
+\begin{align}
+\notag \frac{d s_i}{dt} &= v_i(s_1,\cdots,s_n) \\
+s(0) &= h(x_0).
+\label{eqn:ivp}
+\end{align}    
+
+In the above initial value problem, the set of $n$-tuples of real-valued 
+functions 
+$$\left\{ (v_1(h(x)),v_2(h(x)),\cdots,v_n(h(x))) \right\}_{x \in U}$$ is the vector field on $U$. Due to theorem \ref{thm:ivp}, the above IVP is able
+to describe a dynamical system at least for a short time.  
+\begin{definition}
+A vector field is called \emph{complete} if the solution to 
+the IVP in equation \ref{eqn:ivp} exists for all time.  
+\end{definition}
+
+In the last note, we made a claim that compactness of a 
+manifold makes it easier to describe dynamical systems 
+on them. The next theorem (Ex. 0.2.1 in the book \cite{katok}) 
+tells us why.
+
+\begin{theorem}
+A smooth vector field on a compact manifold is complete.
+\end{theorem}
+
+\begin{proof}
+\begin{itemize}
+\item Let $M$ be a compact $n$-manifold. Then,
+$M \subset \left\{(U^{(i)},h^{(i)})\right\}_{i=1}^K$ for a 
+finite $K$.
+
+\item For each $x_0^{(i)} \in U^{(i)}, 1 \leq i \leq K$,
+the IVP: 
+\begin{align}
+\notag \frac{d s^i_j}{dt} &= v_j^i(s^i_1,\cdots,s^i_n),\;\; 1 \leq j \leq N \\
+s^i(0) &= h^i(x_0).
+\label{eqn:ivp}
+\end{align}    
+has a unique solution $s^i(t) \in h^i(U^i) \subset \mathbb{R}^n$ for 
+all time $t \leq t^i$ due to theorem \ref{thm:ivp} since 
+$\left\{ v^i_j \right\}_{1\leq j\leq n} \in C^1(\mathbb{R})$ by assumption. 
+
+\item There exists an $s^i(t) \in h^k(U^k), k \neq i$, for some $t < t_i$, 
+since each chart is large in some sense. This way, the solution is obtained
+for all time, by moving through different coordinate systems.
+(this is incomplete). 
+\end{itemize}
+\end{proof}
+
+\bibliographystyle{plain}
+\bibliography{bibfile}
+
+
+\end{document}
